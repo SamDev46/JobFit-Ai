@@ -116,6 +116,9 @@ def init_openai_client():
         # Fallback to environment variable
         elif "OPENAI_API_KEY" in os.environ:
             api_key = os.environ["OPENAI_API_KEY"]
+
+        st.write("DEBUG - Secrets:", dict(st.secrets))
+        st.write("DEBUG - Env:", os.environ.get("OPENAI_API_KEY"))
         
         if not api_key:
             st.error("❌ OpenAI API key not found. Please add it to Streamlit secrets or environment variables.")
